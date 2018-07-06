@@ -1,59 +1,48 @@
-# UFC-TI0158 (SEDR) FPGA Preprocessing Watershed Markers
+# UFC-TI0158 (SEDR) Preprocessamento de markers para Watershed
 
-One Paragraph of project description goes here
+Esse projeto é uma prova de conceito para mostrar que é possivel realizar o pré-processamento dos markers para a aplicação do watershed em FPGA. O projeto foi baseado nas praticas 5 e 6 da cadeira de SEDR 2018.1, adaptando o codigo para a nossa IP criada.
 
-## Getting Started
+## Material base utilizado das aulas:
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Pratica 6 - Usando o SDK para programar o sistema de convolução 2d https://docs.google.com/document/d/1fA2LRHAzwJ2qI_SHcglUVRo9vcSzFUhLi5fpy8c3Grk
 
-### Prerequisites
+Prática 5 - Construindo um sistema para teste do core de convolução usando o Design Build Block e Script TCL
+https://docs.google.com/document/d/1eB7StlNAddkjxeJIOFb3yowRXkN8zPyze3vRnArEB84
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+### Pre-requisitos
 
 ```
-Give the example
+Vivado HLS 2018.1
+Vivado 2018.1
+Xilinx SDK 2018.1
+Python 3.6 com biblioteca OpenCV instalada
 ```
+A FPGA utilizada para embarcar o codigo foi a Digilent Nexys 4 DDR (XC7A100T-1CSG324C). 
 
-And repeat
+### Como Gerar os Cores HLS
 
-```
-until finished
-```
+to-do
 
-End with an example of getting some data out of the system or using it for a little demo
+## Como Gerar o bloco de IP's e Exportar para o Xilinx SDK
 
-## Deployment
+to-do
 
-Add additional notes about how to deploy this on a live system
+## Implementar o codigo na placa
 
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+to-do
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Caio Amaral** - [sugien](https://github.com/sugien)
+* **Aleson Barreto** - [albarreto1](https://github.com/albarreto1)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+O projeto é livre para usar e modificar, entretanto não nos responsabilizamos pelo conteudo do projeto.
+Se tiver alguma duvida, pode entrar em contato, mas não garantimos resposta kkkk.
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* Jardel
+* Jorge
+
