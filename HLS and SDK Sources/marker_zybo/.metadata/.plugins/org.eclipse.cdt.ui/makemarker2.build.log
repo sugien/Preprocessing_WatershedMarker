@@ -1,0 +1,30 @@
+16:57:59 **** Incremental Build of configuration Debug for project makemarker2 ****
+make all 
+'Building file: ../src/testperiph.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/testperiph.o" -I../../makemarker2_bsp/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mxl-multiply-high -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/testperiph.d" -MT"src/testperiph.o" -o "src/testperiph.o" "../src/testperiph.c"
+../src/testperiph.c: In function 'main':
+../src/testperiph.c:45:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+     printf("Doing convolution on hw \n");
+     ^~~~~~
+../src/testperiph.c:45:5: warning: incompatible implicit declaration of built-in function 'printf'
+../src/testperiph.c:45:5: note: include '<stdio.h>' or provide a declaration of 'printf'
+../src/testperiph.c:25:11: warning: variable 'p' set but not used [-Wunused-but-set-variable]
+     void *p;
+           ^
+'Finished building: ../src/testperiph.c'
+' '
+'Building target: makemarker2.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../makemarker2_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mxl-multiply-high -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "makemarker2.elf"  ./src/testperiph.o ./src/xaxidma_example_selftest.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: makemarker2.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size makemarker2.elf  |tee "makemarker2.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  19372	 131248	   5060	 155680	  26020	makemarker2.elf
+'Finished building: makemarker2.elf.size'
+' '
+
+16:58:03 Build Finished (took 4s.406ms)
+

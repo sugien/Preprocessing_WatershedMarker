@@ -1,0 +1,11 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../projfin/marker_test.cpp in debug mode
+   Compiling ../../../../projfin/core.cpp in debug mode
+   Generating csim.exe
+Load image C:\Users\aless\Desktop\pills.jpg
+Image Rows: 207 Cols: 310
+Marker imgage done!
+Saving image
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

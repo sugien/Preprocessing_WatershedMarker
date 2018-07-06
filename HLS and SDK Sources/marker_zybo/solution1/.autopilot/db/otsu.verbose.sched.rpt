@@ -1,0 +1,853 @@
+
+
+================================================================
+== Vivado HLS Report for 'otsu'
+================================================================
+* Date:           Thu Jul  5 12:11:38 2018
+
+* Version:        2018.1 (Build 2188600 on Wed Apr 04 19:04:02 MDT 2018)
+* Project:        marker_zybo
+* Solution:       solution1
+* Product family: artix7
+* Target device:  xc7a100tcsg324-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      8.66|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +------+-------+------+-------+---------+
+    |    Latency   |   Interval   | Pipeline|
+    |  min |  max  |  min |  max  |   Type  |
+    +------+-------+------+-------+---------+
+    |  3589|  16388|  3589|  16388|   none  |
+    +------+-------+------+-------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+------+-------+----------+-----------+-----------+---------+----------+
+        |          |    Latency   | Iteration|  Initiation Interval  |   Trip  |          |
+        | Loop Name|  min |  max  |  Latency |  achieved |   target  |  Count  | Pipelined|
+        +----------+------+-------+----------+-----------+-----------+---------+----------+
+        |- Loop 1  |  3584|   3584|        14|          -|          -|      256|    no    |
+        |- Loop 2  |     3|  12801|  3 ~ 50  |          -|          -| 1 ~ 256 |    no    |
+        +----------+------+-------+----------+-----------+-----------+---------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 65
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!exitcond)
+	16  / (exitcond)
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	2  / true
+16 --> 
+	17  / true
+17 --> 
+	65  / (!tmp_5 & tmp_8)
+	18  / (!tmp_5 & !tmp_8 & !tmp_s)
+18 --> 
+	19  / true
+19 --> 
+	20  / true
+20 --> 
+	21  / true
+21 --> 
+	22  / true
+22 --> 
+	23  / true
+23 --> 
+	24  / true
+24 --> 
+	25  / true
+25 --> 
+	26  / true
+26 --> 
+	27  / true
+27 --> 
+	28  / true
+28 --> 
+	29  / true
+29 --> 
+	30  / true
+30 --> 
+	31  / true
+31 --> 
+	32  / true
+32 --> 
+	33  / true
+33 --> 
+	34  / true
+34 --> 
+	35  / true
+35 --> 
+	36  / true
+36 --> 
+	37  / true
+37 --> 
+	38  / true
+38 --> 
+	39  / true
+39 --> 
+	40  / true
+40 --> 
+	41  / true
+41 --> 
+	42  / true
+42 --> 
+	43  / true
+43 --> 
+	44  / true
+44 --> 
+	45  / true
+45 --> 
+	46  / true
+46 --> 
+	47  / true
+47 --> 
+	48  / true
+48 --> 
+	49  / true
+49 --> 
+	50  / true
+50 --> 
+	51  / true
+51 --> 
+	52  / true
+52 --> 
+	53  / true
+53 --> 
+	54  / true
+54 --> 
+	55  / true
+55 --> 
+	56  / true
+56 --> 
+	57  / true
+57 --> 
+	58  / true
+58 --> 
+	59  / true
+59 --> 
+	60  / true
+60 --> 
+	61  / true
+61 --> 
+	62  / true
+62 --> 
+	63  / true
+63 --> 
+	64  / true
+64 --> 
+	65  / true
+65 --> 
+	16  / true
+
+* FSM state operations: 
+
+ <State 1> : 1.66ns
+ST_1 : Operation 66 [1/1] (1.66ns)   --->   "br label %1" [marker_zybo/core.cpp:145]
+
+ <State 2> : 3.26ns
+ST_2 : Operation 67 [1/1] (0.00ns)   --->   "%t = phi i9 [ 0, %0 ], [ %t_1, %2 ]"
+ST_2 : Operation 68 [1/1] (0.00ns)   --->   "%sum = phi float [ 0.000000e+00, %0 ], [ %sum_1, %2 ]"
+ST_2 : Operation 69 [1/1] (0.00ns)   --->   "%t_cast2 = zext i9 %t to i32" [marker_zybo/core.cpp:145]
+ST_2 : Operation 70 [1/1] (1.58ns)   --->   "%exitcond = icmp eq i9 %t, -256" [marker_zybo/core.cpp:145]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.40> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 71 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 256, i64 256, i64 256)"
+ST_2 : Operation 72 [1/1] (2.11ns)   --->   "%t_1 = add i9 %t, 1" [marker_zybo/core.cpp:145]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 73 [1/1] (0.00ns)   --->   "br i1 %exitcond, label %.preheader.preheader, label %2" [marker_zybo/core.cpp:145]
+ST_2 : Operation 74 [1/1] (0.00ns)   --->   "%tmp = zext i9 %t to i64" [marker_zybo/core.cpp:147]
+ST_2 : Operation 75 [1/1] (0.00ns)   --->   "%histData_addr = getelementptr [256 x i32]* %histData, i64 0, i64 %tmp" [marker_zybo/core.cpp:147]
+ST_2 : Operation 76 [2/2] (3.25ns)   --->   "%histData_load = load i32* %histData_addr, align 4" [marker_zybo/core.cpp:147]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
+ST_2 : Operation 77 [1/1] (0.00ns)   --->   "%threshold = alloca i32"
+ST_2 : Operation 78 [1/1] (0.00ns)   --->   "%sumB = alloca float"
+ST_2 : Operation 79 [1/1] (0.00ns)   --->   "%varMax = alloca float"
+ST_2 : Operation 80 [1/1] (1.66ns)   --->   "store float 0.000000e+00, float* %varMax"
+ST_2 : Operation 81 [1/1] (1.66ns)   --->   "store float 0.000000e+00, float* %sumB"
+ST_2 : Operation 82 [1/1] (1.66ns)   --->   "store i32 0, i32* %threshold"
+ST_2 : Operation 83 [1/1] (1.66ns)   --->   "br label %.preheader" [marker_zybo/core.cpp:157]
+
+ <State 3> : 3.26ns
+ST_3 : Operation 84 [1/2] (3.25ns)   --->   "%histData_load = load i32* %histData_addr, align 4" [marker_zybo/core.cpp:147]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
+
+ <State 4> : 8.47ns
+ST_4 : Operation 85 [1/1] (8.47ns)   --->   "%tmp_1 = mul nsw i32 %histData_load, %t_cast2" [marker_zybo/core.cpp:147]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 8.47> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+ <State 5> : 6.18ns
+ST_5 : Operation 86 [6/6] (6.18ns)   --->   "%tmp_2 = sitofp i32 %tmp_1 to float" [marker_zybo/core.cpp:147]   --->   Core 106 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.18> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+ <State 6> : 6.18ns
+ST_6 : Operation 87 [5/6] (6.18ns)   --->   "%tmp_2 = sitofp i32 %tmp_1 to float" [marker_zybo/core.cpp:147]   --->   Core 106 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.18> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+ <State 7> : 6.18ns
+ST_7 : Operation 88 [4/6] (6.18ns)   --->   "%tmp_2 = sitofp i32 %tmp_1 to float" [marker_zybo/core.cpp:147]   --->   Core 106 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.18> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+ <State 8> : 6.18ns
+ST_8 : Operation 89 [3/6] (6.18ns)   --->   "%tmp_2 = sitofp i32 %tmp_1 to float" [marker_zybo/core.cpp:147]   --->   Core 106 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.18> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+ <State 9> : 6.18ns
+ST_9 : Operation 90 [2/6] (6.18ns)   --->   "%tmp_2 = sitofp i32 %tmp_1 to float" [marker_zybo/core.cpp:147]   --->   Core 106 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.18> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+ <State 10> : 6.18ns
+ST_10 : Operation 91 [1/6] (6.18ns)   --->   "%tmp_2 = sitofp i32 %tmp_1 to float" [marker_zybo/core.cpp:147]   --->   Core 106 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.18> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+ <State 11> : 8.26ns
+ST_11 : Operation 92 [5/5] (8.26ns)   --->   "%sum_1 = fadd float %sum, %tmp_2" [marker_zybo/core.cpp:147]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 8.26> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+ <State 12> : 8.26ns
+ST_12 : Operation 93 [4/5] (8.26ns)   --->   "%sum_1 = fadd float %sum, %tmp_2" [marker_zybo/core.cpp:147]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 8.26> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+ <State 13> : 8.26ns
+ST_13 : Operation 94 [3/5] (8.26ns)   --->   "%sum_1 = fadd float %sum, %tmp_2" [marker_zybo/core.cpp:147]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 8.26> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+ <State 14> : 8.26ns
+ST_14 : Operation 95 [2/5] (8.26ns)   --->   "%sum_1 = fadd float %sum, %tmp_2" [marker_zybo/core.cpp:147]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 8.26> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+ <State 15> : 8.26ns
+ST_15 : Operation 96 [1/5] (8.26ns)   --->   "%sum_1 = fadd float %sum, %tmp_2" [marker_zybo/core.cpp:147]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 8.26> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 97 [1/1] (0.00ns)   --->   "br label %1" [marker_zybo/core.cpp:145]
+
+ <State 16> : 3.26ns
+ST_16 : Operation 98 [1/1] (0.00ns)   --->   "%wB = phi i32 [ 0, %.preheader.preheader ], [ %wB_1, %.preheader.backedge ]"
+ST_16 : Operation 99 [1/1] (0.00ns)   --->   "%threshold_2 = phi i9 [ 0, %.preheader.preheader ], [ %t_2, %.preheader.backedge ]"
+ST_16 : Operation 100 [1/1] (0.00ns)   --->   "%threshold_3_cast1 = zext i9 %threshold_2 to i32" [marker_zybo/core.cpp:157]
+ST_16 : Operation 101 [1/1] (0.00ns)   --->   "%tmp_5 = call i1 @_ssdm_op_BitSelect.i1.i9.i32(i9 %threshold_2, i32 8)" [marker_zybo/core.cpp:157]
+ST_16 : Operation 102 [1/1] (0.00ns)   --->   "%empty_5 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 1, i64 256, i64 128)"
+ST_16 : Operation 103 [1/1] (2.11ns)   --->   "%t_2 = add i9 %threshold_2, 1" [marker_zybo/core.cpp:157]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 104 [1/1] (0.00ns)   --->   "br i1 %tmp_5, label %.loopexit, label %3" [marker_zybo/core.cpp:157]
+ST_16 : Operation 105 [1/1] (0.00ns)   --->   "%tmp_6 = zext i9 %threshold_2 to i64" [marker_zybo/core.cpp:158]
+ST_16 : Operation 106 [1/1] (0.00ns)   --->   "%histData_addr_1 = getelementptr [256 x i32]* %histData, i64 0, i64 %tmp_6" [marker_zybo/core.cpp:158]
+ST_16 : Operation 107 [2/2] (3.25ns)   --->   "%histData_load_1 = load i32* %histData_addr_1, align 4" [marker_zybo/core.cpp:158]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
+
+ <State 17> : 8.66ns
+ST_17 : Operation 108 [1/2] (3.25ns)   --->   "%histData_load_1 = load i32* %histData_addr_1, align 4" [marker_zybo/core.cpp:158]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
+ST_17 : Operation 109 [1/1] (2.70ns)   --->   "%wB_1 = add nsw i32 %histData_load_1, %wB" [marker_zybo/core.cpp:158]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 110 [1/1] (2.43ns)   --->   "%tmp_8 = icmp eq i32 %wB_1, 0" [marker_zybo/core.cpp:159]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.40> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 111 [1/1] (0.00ns)   --->   "br i1 %tmp_8, label %.preheader.backedge, label %4" [marker_zybo/core.cpp:159]
+ST_17 : Operation 112 [1/1] (2.70ns)   --->   "%wF = sub nsw i32 64170, %wB_1" [marker_zybo/core.cpp:161]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 113 [1/1] (2.43ns)   --->   "%tmp_s = icmp eq i32 %wB_1, 64170" [marker_zybo/core.cpp:162]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.40> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 114 [1/1] (0.00ns)   --->   "br i1 %tmp_s, label %.loopexit, label %5" [marker_zybo/core.cpp:162]
+ST_17 : Operation 115 [1/1] (0.00ns)   --->   "%threshold_load = load i32* %threshold" [marker_zybo/core.cpp:179]
+ST_17 : Operation 116 [1/1] (0.00ns)   --->   "ret i32 %threshold_load" [marker_zybo/core.cpp:179]
+
+ <State 18> : 8.47ns
+ST_18 : Operation 117 [1/1] (8.47ns)   --->   "%tmp_3 = mul nsw i32 %histData_load_1, %threshold_3_cast1" [marker_zybo/core.cpp:164]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 8.47> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+ <State 19> : 6.18ns
+ST_19 : Operation 118 [6/6] (6.18ns)   --->   "%tmp_4 = sitofp i32 %tmp_3 to float" [marker_zybo/core.cpp:164]   --->   Core 106 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.18> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+ <State 20> : 6.18ns
+ST_20 : Operation 119 [5/6] (6.18ns)   --->   "%tmp_4 = sitofp i32 %tmp_3 to float" [marker_zybo/core.cpp:164]   --->   Core 106 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.18> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+ <State 21> : 6.18ns
+ST_21 : Operation 120 [4/6] (6.18ns)   --->   "%tmp_4 = sitofp i32 %tmp_3 to float" [marker_zybo/core.cpp:164]   --->   Core 106 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.18> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+ <State 22> : 6.18ns
+ST_22 : Operation 121 [3/6] (6.18ns)   --->   "%tmp_4 = sitofp i32 %tmp_3 to float" [marker_zybo/core.cpp:164]   --->   Core 106 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.18> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+ <State 23> : 6.18ns
+ST_23 : Operation 122 [2/6] (6.18ns)   --->   "%tmp_4 = sitofp i32 %tmp_3 to float" [marker_zybo/core.cpp:164]   --->   Core 106 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.18> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+ <State 24> : 6.18ns
+ST_24 : Operation 123 [1/6] (6.18ns)   --->   "%tmp_4 = sitofp i32 %tmp_3 to float" [marker_zybo/core.cpp:164]   --->   Core 106 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.18> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+ <State 25> : 8.26ns
+ST_25 : Operation 124 [1/1] (0.00ns)   --->   "%sumB_load = load float* %sumB" [marker_zybo/core.cpp:164]
+ST_25 : Operation 125 [5/5] (8.26ns)   --->   "%sumB_1 = fadd float %sumB_load, %tmp_4" [marker_zybo/core.cpp:164]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 8.26> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+ <State 26> : 8.26ns
+ST_26 : Operation 126 [4/5] (8.26ns)   --->   "%sumB_1 = fadd float %sumB_load, %tmp_4" [marker_zybo/core.cpp:164]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 8.26> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+ <State 27> : 8.26ns
+ST_27 : Operation 127 [3/5] (8.26ns)   --->   "%sumB_1 = fadd float %sumB_load, %tmp_4" [marker_zybo/core.cpp:164]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 8.26> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+ <State 28> : 8.26ns
+ST_28 : Operation 128 [2/5] (8.26ns)   --->   "%sumB_1 = fadd float %sumB_load, %tmp_4" [marker_zybo/core.cpp:164]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 8.26> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+ <State 29> : 8.26ns
+ST_29 : Operation 129 [1/5] (8.26ns)   --->   "%sumB_1 = fadd float %sumB_load, %tmp_4" [marker_zybo/core.cpp:164]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 8.26> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 130 [6/6] (6.18ns)   --->   "%tmp_7 = sitofp i32 %wB_1 to float" [marker_zybo/core.cpp:166]   --->   Core 106 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.18> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_29 : Operation 131 [6/6] (6.18ns)   --->   "%tmp_10 = sitofp i32 %wF to float" [marker_zybo/core.cpp:167]   --->   Core 106 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.18> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+ <State 30> : 8.26ns
+ST_30 : Operation 132 [5/6] (6.18ns)   --->   "%tmp_7 = sitofp i32 %wB_1 to float" [marker_zybo/core.cpp:166]   --->   Core 106 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.18> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_30 : Operation 133 [5/5] (8.26ns)   --->   "%tmp_9 = fsub float %sum, %sumB_1" [marker_zybo/core.cpp:167]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 8.26> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_30 : Operation 134 [5/6] (6.18ns)   --->   "%tmp_10 = sitofp i32 %wF to float" [marker_zybo/core.cpp:167]   --->   Core 106 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.18> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_30 : Operation 135 [1/1] (1.66ns)   --->   "store float %sumB_1, float* %sumB" [marker_zybo/core.cpp:164]
+
+ <State 31> : 8.26ns
+ST_31 : Operation 136 [4/6] (6.18ns)   --->   "%tmp_7 = sitofp i32 %wB_1 to float" [marker_zybo/core.cpp:166]   --->   Core 106 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.18> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_31 : Operation 137 [4/5] (8.26ns)   --->   "%tmp_9 = fsub float %sum, %sumB_1" [marker_zybo/core.cpp:167]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 8.26> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 138 [4/6] (6.18ns)   --->   "%tmp_10 = sitofp i32 %wF to float" [marker_zybo/core.cpp:167]   --->   Core 106 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.18> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+ <State 32> : 8.26ns
+ST_32 : Operation 139 [3/6] (6.18ns)   --->   "%tmp_7 = sitofp i32 %wB_1 to float" [marker_zybo/core.cpp:166]   --->   Core 106 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.18> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_32 : Operation 140 [3/5] (8.26ns)   --->   "%tmp_9 = fsub float %sum, %sumB_1" [marker_zybo/core.cpp:167]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 8.26> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 141 [3/6] (6.18ns)   --->   "%tmp_10 = sitofp i32 %wF to float" [marker_zybo/core.cpp:167]   --->   Core 106 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.18> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+ <State 33> : 8.26ns
+ST_33 : Operation 142 [2/6] (6.18ns)   --->   "%tmp_7 = sitofp i32 %wB_1 to float" [marker_zybo/core.cpp:166]   --->   Core 106 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.18> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_33 : Operation 143 [2/5] (8.26ns)   --->   "%tmp_9 = fsub float %sum, %sumB_1" [marker_zybo/core.cpp:167]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 8.26> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 144 [2/6] (6.18ns)   --->   "%tmp_10 = sitofp i32 %wF to float" [marker_zybo/core.cpp:167]   --->   Core 106 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.18> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+ <State 34> : 8.26ns
+ST_34 : Operation 145 [1/6] (6.18ns)   --->   "%tmp_7 = sitofp i32 %wB_1 to float" [marker_zybo/core.cpp:166]   --->   Core 106 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.18> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_34 : Operation 146 [1/5] (8.26ns)   --->   "%tmp_9 = fsub float %sum, %sumB_1" [marker_zybo/core.cpp:167]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 8.26> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_34 : Operation 147 [1/6] (6.18ns)   --->   "%tmp_10 = sitofp i32 %wF to float" [marker_zybo/core.cpp:167]   --->   Core 106 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.18> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+ <State 35> : 6.30ns
+ST_35 : Operation 148 [16/16] (6.30ns)   --->   "%mB = fdiv float %sumB_1, %tmp_7" [marker_zybo/core.cpp:166]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_35 : Operation 149 [16/16] (6.30ns)   --->   "%mF = fdiv float %tmp_9, %tmp_10" [marker_zybo/core.cpp:167]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_35 : Operation 150 [4/4] (5.78ns)   --->   "%tmp_11 = fmul float %tmp_7, %tmp_10" [marker_zybo/core.cpp:170]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.78> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+ <State 36> : 6.30ns
+ST_36 : Operation 151 [15/16] (6.30ns)   --->   "%mB = fdiv float %sumB_1, %tmp_7" [marker_zybo/core.cpp:166]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_36 : Operation 152 [15/16] (6.30ns)   --->   "%mF = fdiv float %tmp_9, %tmp_10" [marker_zybo/core.cpp:167]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_36 : Operation 153 [3/4] (5.78ns)   --->   "%tmp_11 = fmul float %tmp_7, %tmp_10" [marker_zybo/core.cpp:170]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.78> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+ <State 37> : 6.30ns
+ST_37 : Operation 154 [14/16] (6.30ns)   --->   "%mB = fdiv float %sumB_1, %tmp_7" [marker_zybo/core.cpp:166]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_37 : Operation 155 [14/16] (6.30ns)   --->   "%mF = fdiv float %tmp_9, %tmp_10" [marker_zybo/core.cpp:167]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_37 : Operation 156 [2/4] (5.78ns)   --->   "%tmp_11 = fmul float %tmp_7, %tmp_10" [marker_zybo/core.cpp:170]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.78> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+ <State 38> : 6.30ns
+ST_38 : Operation 157 [13/16] (6.30ns)   --->   "%mB = fdiv float %sumB_1, %tmp_7" [marker_zybo/core.cpp:166]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 158 [13/16] (6.30ns)   --->   "%mF = fdiv float %tmp_9, %tmp_10" [marker_zybo/core.cpp:167]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 159 [1/4] (5.78ns)   --->   "%tmp_11 = fmul float %tmp_7, %tmp_10" [marker_zybo/core.cpp:170]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.78> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+ <State 39> : 6.30ns
+ST_39 : Operation 160 [12/16] (6.30ns)   --->   "%mB = fdiv float %sumB_1, %tmp_7" [marker_zybo/core.cpp:166]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_39 : Operation 161 [12/16] (6.30ns)   --->   "%mF = fdiv float %tmp_9, %tmp_10" [marker_zybo/core.cpp:167]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+ <State 40> : 6.30ns
+ST_40 : Operation 162 [11/16] (6.30ns)   --->   "%mB = fdiv float %sumB_1, %tmp_7" [marker_zybo/core.cpp:166]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_40 : Operation 163 [11/16] (6.30ns)   --->   "%mF = fdiv float %tmp_9, %tmp_10" [marker_zybo/core.cpp:167]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+ <State 41> : 6.30ns
+ST_41 : Operation 164 [10/16] (6.30ns)   --->   "%mB = fdiv float %sumB_1, %tmp_7" [marker_zybo/core.cpp:166]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_41 : Operation 165 [10/16] (6.30ns)   --->   "%mF = fdiv float %tmp_9, %tmp_10" [marker_zybo/core.cpp:167]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+ <State 42> : 6.30ns
+ST_42 : Operation 166 [9/16] (6.30ns)   --->   "%mB = fdiv float %sumB_1, %tmp_7" [marker_zybo/core.cpp:166]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_42 : Operation 167 [9/16] (6.30ns)   --->   "%mF = fdiv float %tmp_9, %tmp_10" [marker_zybo/core.cpp:167]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+ <State 43> : 6.30ns
+ST_43 : Operation 168 [8/16] (6.30ns)   --->   "%mB = fdiv float %sumB_1, %tmp_7" [marker_zybo/core.cpp:166]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_43 : Operation 169 [8/16] (6.30ns)   --->   "%mF = fdiv float %tmp_9, %tmp_10" [marker_zybo/core.cpp:167]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+ <State 44> : 6.30ns
+ST_44 : Operation 170 [7/16] (6.30ns)   --->   "%mB = fdiv float %sumB_1, %tmp_7" [marker_zybo/core.cpp:166]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_44 : Operation 171 [7/16] (6.30ns)   --->   "%mF = fdiv float %tmp_9, %tmp_10" [marker_zybo/core.cpp:167]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+ <State 45> : 6.30ns
+ST_45 : Operation 172 [6/16] (6.30ns)   --->   "%mB = fdiv float %sumB_1, %tmp_7" [marker_zybo/core.cpp:166]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_45 : Operation 173 [6/16] (6.30ns)   --->   "%mF = fdiv float %tmp_9, %tmp_10" [marker_zybo/core.cpp:167]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+ <State 46> : 6.30ns
+ST_46 : Operation 174 [5/16] (6.30ns)   --->   "%mB = fdiv float %sumB_1, %tmp_7" [marker_zybo/core.cpp:166]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_46 : Operation 175 [5/16] (6.30ns)   --->   "%mF = fdiv float %tmp_9, %tmp_10" [marker_zybo/core.cpp:167]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+ <State 47> : 6.30ns
+ST_47 : Operation 176 [4/16] (6.30ns)   --->   "%mB = fdiv float %sumB_1, %tmp_7" [marker_zybo/core.cpp:166]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_47 : Operation 177 [4/16] (6.30ns)   --->   "%mF = fdiv float %tmp_9, %tmp_10" [marker_zybo/core.cpp:167]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+ <State 48> : 6.30ns
+ST_48 : Operation 178 [3/16] (6.30ns)   --->   "%mB = fdiv float %sumB_1, %tmp_7" [marker_zybo/core.cpp:166]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_48 : Operation 179 [3/16] (6.30ns)   --->   "%mF = fdiv float %tmp_9, %tmp_10" [marker_zybo/core.cpp:167]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+ <State 49> : 6.30ns
+ST_49 : Operation 180 [2/16] (6.30ns)   --->   "%mB = fdiv float %sumB_1, %tmp_7" [marker_zybo/core.cpp:166]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_49 : Operation 181 [2/16] (6.30ns)   --->   "%mF = fdiv float %tmp_9, %tmp_10" [marker_zybo/core.cpp:167]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+ <State 50> : 6.30ns
+ST_50 : Operation 182 [1/16] (6.30ns)   --->   "%mB = fdiv float %sumB_1, %tmp_7" [marker_zybo/core.cpp:166]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_50 : Operation 183 [1/16] (6.30ns)   --->   "%mF = fdiv float %tmp_9, %tmp_10" [marker_zybo/core.cpp:167]   --->   Core 101 'FDiv' <Latency = 15> <II = 1> <Delay = 6.30> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+ <State 51> : 8.26ns
+ST_51 : Operation 184 [5/5] (8.26ns)   --->   "%tmp_12 = fsub float %mB, %mF" [marker_zybo/core.cpp:170]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 8.26> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+ <State 52> : 8.26ns
+ST_52 : Operation 185 [4/5] (8.26ns)   --->   "%tmp_12 = fsub float %mB, %mF" [marker_zybo/core.cpp:170]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 8.26> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+ <State 53> : 8.26ns
+ST_53 : Operation 186 [3/5] (8.26ns)   --->   "%tmp_12 = fsub float %mB, %mF" [marker_zybo/core.cpp:170]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 8.26> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+ <State 54> : 8.26ns
+ST_54 : Operation 187 [2/5] (8.26ns)   --->   "%tmp_12 = fsub float %mB, %mF" [marker_zybo/core.cpp:170]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 8.26> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+ <State 55> : 8.26ns
+ST_55 : Operation 188 [1/5] (8.26ns)   --->   "%tmp_12 = fsub float %mB, %mF" [marker_zybo/core.cpp:170]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 8.26> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+ <State 56> : 5.78ns
+ST_56 : Operation 189 [4/4] (5.78ns)   --->   "%tmp_13 = fmul float %tmp_11, %tmp_12" [marker_zybo/core.cpp:170]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.78> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+ <State 57> : 5.78ns
+ST_57 : Operation 190 [3/4] (5.78ns)   --->   "%tmp_13 = fmul float %tmp_11, %tmp_12" [marker_zybo/core.cpp:170]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.78> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+ <State 58> : 5.78ns
+ST_58 : Operation 191 [2/4] (5.78ns)   --->   "%tmp_13 = fmul float %tmp_11, %tmp_12" [marker_zybo/core.cpp:170]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.78> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+ <State 59> : 5.78ns
+ST_59 : Operation 192 [1/4] (5.78ns)   --->   "%tmp_13 = fmul float %tmp_11, %tmp_12" [marker_zybo/core.cpp:170]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.78> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+ <State 60> : 5.78ns
+ST_60 : Operation 193 [4/4] (5.78ns)   --->   "%varBetween = fmul float %tmp_13, %tmp_12" [marker_zybo/core.cpp:170]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.78> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+ <State 61> : 5.78ns
+ST_61 : Operation 194 [3/4] (5.78ns)   --->   "%varBetween = fmul float %tmp_13, %tmp_12" [marker_zybo/core.cpp:170]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.78> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+ <State 62> : 5.78ns
+ST_62 : Operation 195 [2/4] (5.78ns)   --->   "%varBetween = fmul float %tmp_13, %tmp_12" [marker_zybo/core.cpp:170]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.78> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+ <State 63> : 5.78ns
+ST_63 : Operation 196 [1/4] (5.78ns)   --->   "%varBetween = fmul float %tmp_13, %tmp_12" [marker_zybo/core.cpp:170]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.78> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+ <State 64> : 8.14ns
+ST_64 : Operation 197 [1/1] (0.00ns)   --->   "%threshold_load_1 = load i32* %threshold" [marker_zybo/core.cpp:173]
+ST_64 : Operation 198 [1/1] (0.00ns)   --->   "%varMax_load = load float* %varMax" [marker_zybo/core.cpp:173]
+ST_64 : Operation 199 [1/1] (0.00ns)   --->   "%varBetween_to_int = bitcast float %varBetween to i32" [marker_zybo/core.cpp:170]
+ST_64 : Operation 200 [1/1] (0.00ns)   --->   "%tmp_14 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %varBetween_to_int, i32 23, i32 30)" [marker_zybo/core.cpp:170]
+ST_64 : Operation 201 [1/1] (0.00ns)   --->   "%tmp_15 = trunc i32 %varBetween_to_int to i23" [marker_zybo/core.cpp:170]
+ST_64 : Operation 202 [1/1] (0.00ns)   --->   "%varMax_to_int = bitcast float %varMax_load to i32" [marker_zybo/core.cpp:173]
+ST_64 : Operation 203 [1/1] (0.00ns)   --->   "%tmp_16 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %varMax_to_int, i32 23, i32 30)" [marker_zybo/core.cpp:173]
+ST_64 : Operation 204 [1/1] (0.00ns)   --->   "%tmp_17 = trunc i32 %varMax_to_int to i23" [marker_zybo/core.cpp:173]
+ST_64 : Operation 205 [1/1] (1.47ns)   --->   "%notlhs = icmp ne i8 %tmp_14, -1" [marker_zybo/core.cpp:170]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.40> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_64 : Operation 206 [1/1] (2.40ns)   --->   "%notrhs = icmp eq i23 %tmp_15, 0" [marker_zybo/core.cpp:170]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.40> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_64 : Operation 207 [1/1] (0.00ns) (grouped into LUT with out node tmp_22)   --->   "%tmp_18 = or i1 %notrhs, %notlhs" [marker_zybo/core.cpp:170]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_64 : Operation 208 [1/1] (1.47ns)   --->   "%notlhs3 = icmp ne i8 %tmp_16, -1" [marker_zybo/core.cpp:173]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.40> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_64 : Operation 209 [1/1] (2.40ns)   --->   "%notrhs4 = icmp eq i23 %tmp_17, 0" [marker_zybo/core.cpp:173]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.40> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_64 : Operation 210 [1/1] (0.00ns) (grouped into LUT with out node tmp_22)   --->   "%tmp_19 = or i1 %notrhs4, %notlhs3" [marker_zybo/core.cpp:173]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_64 : Operation 211 [1/1] (0.00ns) (grouped into LUT with out node tmp_22)   --->   "%tmp_20 = and i1 %tmp_18, %tmp_19" [marker_zybo/core.cpp:170]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_64 : Operation 212 [1/1] (6.36ns)   --->   "%tmp_21 = fcmp ogt float %varBetween, %varMax_load" [marker_zybo/core.cpp:173]   --->   Core 105 'FCmp' <Latency = 0> <II = 1> <Delay = 6.36> <FuncUnit> <Opcode : 'fcmp'> <InPorts = 2> <OutPorts = 1>
+ST_64 : Operation 213 [1/1] (0.97ns) (out node of the LUT)   --->   "%tmp_22 = and i1 %tmp_20, %tmp_21" [marker_zybo/core.cpp:173]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_64 : Operation 214 [1/1] (0.79ns)   --->   "%varMax_1 = select i1 %tmp_22, float %varBetween, float %varMax_load" [marker_zybo/core.cpp:173]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.79> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_64 : Operation 215 [1/1] (0.79ns)   --->   "%threshold_1 = select i1 %tmp_22, i32 %threshold_3_cast1, i32 %threshold_load_1" [marker_zybo/core.cpp:173]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.79> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+
+ <State 65> : 1.66ns
+ST_65 : Operation 216 [1/1] (1.66ns)   --->   "store float %varMax_1, float* %varMax" [marker_zybo/core.cpp:173]
+ST_65 : Operation 217 [1/1] (1.66ns)   --->   "store i32 %threshold_1, i32* %threshold" [marker_zybo/core.cpp:173]
+ST_65 : Operation 218 [1/1] (0.00ns)   --->   "br label %.preheader.backedge" [marker_zybo/core.cpp:177]
+ST_65 : Operation 219 [1/1] (0.00ns)   --->   "br label %.preheader"
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.66ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('t') with incoming values : ('t', marker_zybo/core.cpp:145) [4]  (1.66 ns)
+
+ <State 2>: 3.26ns
+The critical path consists of the following:
+	'phi' operation ('t') with incoming values : ('t', marker_zybo/core.cpp:145) [4]  (0 ns)
+	'getelementptr' operation ('histData_addr', marker_zybo/core.cpp:147) [13]  (0 ns)
+	'load' operation ('histData_load', marker_zybo/core.cpp:147) on array 'histData' [14]  (3.26 ns)
+
+ <State 3>: 3.26ns
+The critical path consists of the following:
+	'load' operation ('histData_load', marker_zybo/core.cpp:147) on array 'histData' [14]  (3.26 ns)
+
+ <State 4>: 8.47ns
+The critical path consists of the following:
+	'mul' operation ('tmp_1', marker_zybo/core.cpp:147) [15]  (8.47 ns)
+
+ <State 5>: 6.18ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_2', marker_zybo/core.cpp:147) [16]  (6.18 ns)
+
+ <State 6>: 6.18ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_2', marker_zybo/core.cpp:147) [16]  (6.18 ns)
+
+ <State 7>: 6.18ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_2', marker_zybo/core.cpp:147) [16]  (6.18 ns)
+
+ <State 8>: 6.18ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_2', marker_zybo/core.cpp:147) [16]  (6.18 ns)
+
+ <State 9>: 6.18ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_2', marker_zybo/core.cpp:147) [16]  (6.18 ns)
+
+ <State 10>: 6.18ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_2', marker_zybo/core.cpp:147) [16]  (6.18 ns)
+
+ <State 11>: 8.26ns
+The critical path consists of the following:
+	'fadd' operation ('sum', marker_zybo/core.cpp:147) [17]  (8.26 ns)
+
+ <State 12>: 8.26ns
+The critical path consists of the following:
+	'fadd' operation ('sum', marker_zybo/core.cpp:147) [17]  (8.26 ns)
+
+ <State 13>: 8.26ns
+The critical path consists of the following:
+	'fadd' operation ('sum', marker_zybo/core.cpp:147) [17]  (8.26 ns)
+
+ <State 14>: 8.26ns
+The critical path consists of the following:
+	'fadd' operation ('sum', marker_zybo/core.cpp:147) [17]  (8.26 ns)
+
+ <State 15>: 8.26ns
+The critical path consists of the following:
+	'fadd' operation ('sum', marker_zybo/core.cpp:147) [17]  (8.26 ns)
+
+ <State 16>: 3.26ns
+The critical path consists of the following:
+	'phi' operation ('t') with incoming values : ('t', marker_zybo/core.cpp:157) [29]  (0 ns)
+	'getelementptr' operation ('histData_addr_1', marker_zybo/core.cpp:158) [37]  (0 ns)
+	'load' operation ('histData_load_1', marker_zybo/core.cpp:158) on array 'histData' [38]  (3.26 ns)
+
+ <State 17>: 8.66ns
+The critical path consists of the following:
+	'load' operation ('histData_load_1', marker_zybo/core.cpp:158) on array 'histData' [38]  (3.26 ns)
+	'add' operation ('wB', marker_zybo/core.cpp:158) [39]  (2.7 ns)
+	'sub' operation ('wF', marker_zybo/core.cpp:161) [43]  (2.7 ns)
+
+ <State 18>: 8.47ns
+The critical path consists of the following:
+	'mul' operation ('tmp_3', marker_zybo/core.cpp:164) [50]  (8.47 ns)
+
+ <State 19>: 6.18ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_4', marker_zybo/core.cpp:164) [51]  (6.18 ns)
+
+ <State 20>: 6.18ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_4', marker_zybo/core.cpp:164) [51]  (6.18 ns)
+
+ <State 21>: 6.18ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_4', marker_zybo/core.cpp:164) [51]  (6.18 ns)
+
+ <State 22>: 6.18ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_4', marker_zybo/core.cpp:164) [51]  (6.18 ns)
+
+ <State 23>: 6.18ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_4', marker_zybo/core.cpp:164) [51]  (6.18 ns)
+
+ <State 24>: 6.18ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_4', marker_zybo/core.cpp:164) [51]  (6.18 ns)
+
+ <State 25>: 8.26ns
+The critical path consists of the following:
+	'load' operation ('sumB_load', marker_zybo/core.cpp:164) on local variable 'sumB' [48]  (0 ns)
+	'fadd' operation ('sumB', marker_zybo/core.cpp:164) [52]  (8.26 ns)
+
+ <State 26>: 8.26ns
+The critical path consists of the following:
+	'fadd' operation ('sumB', marker_zybo/core.cpp:164) [52]  (8.26 ns)
+
+ <State 27>: 8.26ns
+The critical path consists of the following:
+	'fadd' operation ('sumB', marker_zybo/core.cpp:164) [52]  (8.26 ns)
+
+ <State 28>: 8.26ns
+The critical path consists of the following:
+	'fadd' operation ('sumB', marker_zybo/core.cpp:164) [52]  (8.26 ns)
+
+ <State 29>: 8.26ns
+The critical path consists of the following:
+	'fadd' operation ('sumB', marker_zybo/core.cpp:164) [52]  (8.26 ns)
+
+ <State 30>: 8.26ns
+The critical path consists of the following:
+	'fsub' operation ('tmp_9', marker_zybo/core.cpp:167) [55]  (8.26 ns)
+
+ <State 31>: 8.26ns
+The critical path consists of the following:
+	'fsub' operation ('tmp_9', marker_zybo/core.cpp:167) [55]  (8.26 ns)
+
+ <State 32>: 8.26ns
+The critical path consists of the following:
+	'fsub' operation ('tmp_9', marker_zybo/core.cpp:167) [55]  (8.26 ns)
+
+ <State 33>: 8.26ns
+The critical path consists of the following:
+	'fsub' operation ('tmp_9', marker_zybo/core.cpp:167) [55]  (8.26 ns)
+
+ <State 34>: 8.26ns
+The critical path consists of the following:
+	'fsub' operation ('tmp_9', marker_zybo/core.cpp:167) [55]  (8.26 ns)
+
+ <State 35>: 6.3ns
+The critical path consists of the following:
+	'fdiv' operation ('mB', marker_zybo/core.cpp:166) [54]  (6.3 ns)
+
+ <State 36>: 6.3ns
+The critical path consists of the following:
+	'fdiv' operation ('mB', marker_zybo/core.cpp:166) [54]  (6.3 ns)
+
+ <State 37>: 6.3ns
+The critical path consists of the following:
+	'fdiv' operation ('mB', marker_zybo/core.cpp:166) [54]  (6.3 ns)
+
+ <State 38>: 6.3ns
+The critical path consists of the following:
+	'fdiv' operation ('mB', marker_zybo/core.cpp:166) [54]  (6.3 ns)
+
+ <State 39>: 6.3ns
+The critical path consists of the following:
+	'fdiv' operation ('mB', marker_zybo/core.cpp:166) [54]  (6.3 ns)
+
+ <State 40>: 6.3ns
+The critical path consists of the following:
+	'fdiv' operation ('mB', marker_zybo/core.cpp:166) [54]  (6.3 ns)
+
+ <State 41>: 6.3ns
+The critical path consists of the following:
+	'fdiv' operation ('mB', marker_zybo/core.cpp:166) [54]  (6.3 ns)
+
+ <State 42>: 6.3ns
+The critical path consists of the following:
+	'fdiv' operation ('mB', marker_zybo/core.cpp:166) [54]  (6.3 ns)
+
+ <State 43>: 6.3ns
+The critical path consists of the following:
+	'fdiv' operation ('mB', marker_zybo/core.cpp:166) [54]  (6.3 ns)
+
+ <State 44>: 6.3ns
+The critical path consists of the following:
+	'fdiv' operation ('mB', marker_zybo/core.cpp:166) [54]  (6.3 ns)
+
+ <State 45>: 6.3ns
+The critical path consists of the following:
+	'fdiv' operation ('mB', marker_zybo/core.cpp:166) [54]  (6.3 ns)
+
+ <State 46>: 6.3ns
+The critical path consists of the following:
+	'fdiv' operation ('mB', marker_zybo/core.cpp:166) [54]  (6.3 ns)
+
+ <State 47>: 6.3ns
+The critical path consists of the following:
+	'fdiv' operation ('mB', marker_zybo/core.cpp:166) [54]  (6.3 ns)
+
+ <State 48>: 6.3ns
+The critical path consists of the following:
+	'fdiv' operation ('mB', marker_zybo/core.cpp:166) [54]  (6.3 ns)
+
+ <State 49>: 6.3ns
+The critical path consists of the following:
+	'fdiv' operation ('mB', marker_zybo/core.cpp:166) [54]  (6.3 ns)
+
+ <State 50>: 6.3ns
+The critical path consists of the following:
+	'fdiv' operation ('mB', marker_zybo/core.cpp:166) [54]  (6.3 ns)
+
+ <State 51>: 8.26ns
+The critical path consists of the following:
+	'fsub' operation ('tmp_12', marker_zybo/core.cpp:170) [59]  (8.26 ns)
+
+ <State 52>: 8.26ns
+The critical path consists of the following:
+	'fsub' operation ('tmp_12', marker_zybo/core.cpp:170) [59]  (8.26 ns)
+
+ <State 53>: 8.26ns
+The critical path consists of the following:
+	'fsub' operation ('tmp_12', marker_zybo/core.cpp:170) [59]  (8.26 ns)
+
+ <State 54>: 8.26ns
+The critical path consists of the following:
+	'fsub' operation ('tmp_12', marker_zybo/core.cpp:170) [59]  (8.26 ns)
+
+ <State 55>: 8.26ns
+The critical path consists of the following:
+	'fsub' operation ('tmp_12', marker_zybo/core.cpp:170) [59]  (8.26 ns)
+
+ <State 56>: 5.78ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_13', marker_zybo/core.cpp:170) [60]  (5.78 ns)
+
+ <State 57>: 5.78ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_13', marker_zybo/core.cpp:170) [60]  (5.78 ns)
+
+ <State 58>: 5.78ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_13', marker_zybo/core.cpp:170) [60]  (5.78 ns)
+
+ <State 59>: 5.78ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_13', marker_zybo/core.cpp:170) [60]  (5.78 ns)
+
+ <State 60>: 5.78ns
+The critical path consists of the following:
+	'fmul' operation ('varBetween', marker_zybo/core.cpp:170) [61]  (5.78 ns)
+
+ <State 61>: 5.78ns
+The critical path consists of the following:
+	'fmul' operation ('varBetween', marker_zybo/core.cpp:170) [61]  (5.78 ns)
+
+ <State 62>: 5.78ns
+The critical path consists of the following:
+	'fmul' operation ('varBetween', marker_zybo/core.cpp:170) [61]  (5.78 ns)
+
+ <State 63>: 5.78ns
+The critical path consists of the following:
+	'fmul' operation ('varBetween', marker_zybo/core.cpp:170) [61]  (5.78 ns)
+
+ <State 64>: 8.14ns
+The critical path consists of the following:
+	'load' operation ('varMax_load', marker_zybo/core.cpp:173) on local variable 'varMax' [49]  (0 ns)
+	'fcmp' operation ('tmp_21', marker_zybo/core.cpp:173) [75]  (6.37 ns)
+	'and' operation ('tmp_22', marker_zybo/core.cpp:173) [76]  (0.978 ns)
+	'select' operation ('varMax', marker_zybo/core.cpp:173) [77]  (0.796 ns)
+
+ <State 65>: 1.66ns
+The critical path consists of the following:
+	'store' operation (marker_zybo/core.cpp:173) of variable 'varMax', marker_zybo/core.cpp:173 on local variable 'varMax' [79]  (1.66 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+	State 50
+	State 51
+	State 52
+	State 53
+	State 54
+	State 55
+	State 56
+	State 57
+	State 58
+	State 59
+	State 60
+	State 61
+	State 62
+	State 63
+	State 64
+	State 65
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
