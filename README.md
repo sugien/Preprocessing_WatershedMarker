@@ -15,18 +15,6 @@ Python 3.6 com biblioteca OpenCV instalada
 ```
 A FPGA utilizada para embarcar o codigo foi a Digilent Nexys 4 DDR (XC7A100T-1CSG324C). 
 
-### Como Gerar os Cores HLS
-
-to-do
-
-## Como Gerar o bloco de IP's e Exportar para o Xilinx SDK
-
-to-do
-
-## Implementar o codigo na placa
-
-to-do
-
 ## License
 
 O projeto é livre para usar e modificar, entretanto não nos responsabilizamos por erros ou bugs que você encontre ao usar o nosso projeto.
